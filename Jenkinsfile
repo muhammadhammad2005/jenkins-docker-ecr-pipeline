@@ -21,6 +21,10 @@ pipeline {
     }
 
     stage('Login to ECR and Push') {
+      environment {
+        AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+      }
       steps {
         sh """
           aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${ECR_REPO}
@@ -42,8 +46,11 @@ pipeline {
   }
 
   post {
-    success { echo "✅ Deployment successful!" }
-    failure { echo "❌ Deployment failed." }
+    success {
+      echo "✅ Deployment successful!"
+    }
+    failure {
+      echo "❌ Deployment failed."
+    }
   }
 }
-
