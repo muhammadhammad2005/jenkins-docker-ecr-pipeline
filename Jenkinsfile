@@ -2,9 +2,9 @@ pipeline {
   agent any
 
   environment {
-    AWS_REGION = "ap-south-1"
-    ECR_REPO = "221082195621.dkr.ecr.ap-south-1.amazonaws.com/hello-world-app"
-    DEPLOY_HOST = "admin@192.168.122.105"
+    AWS_REGION = "us-west-1"
+    ECR_REPO = "221082195621.dkr.ecr.us-west-1.amazonaws.com/hello-world-app"
+    DEPLOY_HOST = "ubuntu@54.219.220.47"
   }
 
   stages {
