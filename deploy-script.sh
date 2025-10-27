@@ -6,7 +6,7 @@ CONTAINER_NAME="hello-world-app"
 echo "Deploying $IMAGE..."
 
 # Login to ECR
-aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 221082195621.dkr.ecr.ap-south-1.amazonaws.com
+aws ecr get-login-password --region us-west-1 | docker login --username AWS --password-stdin 221082195621.dkr.ecr.us-west-1.amazonaws.com
 
 # Stop and remove old container (if exists)
 docker stop $CONTAINER_NAME || true
